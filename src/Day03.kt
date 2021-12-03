@@ -9,11 +9,11 @@ fun main() {
     }
     var gammaString = ""
     for (i in 0..11) {
-        gammaString+= if(getGammaBitForPosition(map, i)) '1' else "0"
+        gammaString+= if(getMostCommonForPos(map, i)) '1' else "0"
     }
     var epsilonString = ""
     for (i in 0..11) {
-        epsilonString+= if(getGammaBitForPosition(map, i)) '0' else "1"
+        epsilonString+= if(getMostCommonForPos(map, i)) '0' else "1"
     }
 
     println("Gamma string binary: ${gammaString}")
@@ -28,7 +28,7 @@ fun main() {
 
 }
 
-fun getGammaBitForPosition(listy : List<List<Boolean>>, pos : Int) : Boolean{
+fun getMostCommonForPos(listy : List<List<Boolean>>, pos : Int) : Boolean{
     var ones = 0
     var zeros = 0
     listy.forEach {
@@ -38,5 +38,5 @@ fun getGammaBitForPosition(listy : List<List<Boolean>>, pos : Int) : Boolean{
             zeros++
         }
     }
-    return ones > zeros
+    return ones >= zeros
 }
