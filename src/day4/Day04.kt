@@ -81,7 +81,9 @@ class BingoBoard(val state: List<List<Number>>) {
         var hasWon = false
         //rows
         state.forEach {
-            hasWon = isAllMarked(it)
+            if(!hasWon) {
+                hasWon = isAllMarked(it)
+            }
         }
         for (rows in 0..4){
             if(!hasWon) {
